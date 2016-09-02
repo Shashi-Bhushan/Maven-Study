@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<!-- ====================================================================== -->
+	<!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
+	<!-- ====================================================================== -->
 	<parent>
 		<groupId>com.maven.study</groupId>
 		<artifactId>Maven-Study</artifactId>
@@ -8,6 +11,9 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
+	<!-- ====================================================================== -->
+	<!-- P R O J E C T  D E S C R I P T I O N                                   -->
+	<!-- ====================================================================== -->
 	<name>Maven Study - Core</name>
 	<artifactId>Maven-Study-Core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -15,8 +21,52 @@
 	<!-- Bundle Packaging means this will be a Bundle. OSGi Bundle -->
 	<packaging>bundle</packaging>
 
+	<!-- How to Enable Groovy : 1 Add Maven Dependency for Enabling Groovy -->
+	<dependencies>
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>${maven.groovy.version}</version>
+		</dependency>
+	</dependencies>
+
+	<!-- ====================================================================== -->
+	<!-- B U I L D   D E F I N I T I O N                                        -->
+	<!-- ====================================================================== -->
 	<build>
+		<!-- Important for specifying Test Directory -->
+		<testSourceDirectory>src/test/java/</testSourceDirectory>
 		<plugins>
+			<!-- How to Enable Groovy : 2 Add Groovy Plugin-->
+			<plugin>
+				<groupId>org.codehaus.groovy</groupId>
+				<artifactId>groovy-eclipse-compiler</artifactId>
+				<version>2.9.2-01</version>
+			</plugin>
+			<!-- How to Enable Groovy : 3 Edit Compiler Plugin-->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<!-- 2.8.0-01 and later require maven-compiler-plugin 3.1 or higher -->
+				<version>${maven.compiler.version}</version>
+				<configuration>
+					<!-- How to Enable Groovy : 4 Add the groovy plugin ID here-->
+					<compilerId>groovy-eclipse-compiler</compilerId>
+				</configuration>
+				<!-- How to Enable Groovy : 5 Explicit Dependencies of Plugin-->
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.groovy</groupId>
+						<artifactId>groovy-eclipse-compiler</artifactId>
+						<version>2.9.1-01</version>
+					</dependency>
+					<!-- for 2.8.0-01 and later you must have an explicit dependency on groovy-eclipse-batch -->
+					<dependency>
+						<groupId>org.codehaus.groovy</groupId>
+						<artifactId>groovy-eclipse-batch</artifactId>
+						<version>2.3.7-01</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>

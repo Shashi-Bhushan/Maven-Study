@@ -31,6 +31,10 @@
 		<aem.publish.port>4503</aem.publish.port>
 		<aem.user>admin</aem.user>
 		<aem.user.password>admin</aem.user.password>
+		<maven.compile.source>1.8</maven.compile.source>
+		<maven.compile.target>1.8</maven.compile.target>
+		<maven.compiler.version>3.3</maven.compiler.version>
+		<maven.groovy.version>2.3.6</maven.groovy.version>
 	</properties>
 
 	<build>
@@ -61,16 +65,16 @@
 				<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.3</version>
+                <version>${maven.compiler.version}</version>
                 <configuration>
                 	<!-- Source means compile assuming input class has syntax of Java 1.8 
                 	Target means it will run on JVM Version 1.8 -->
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${maven.compile.source}</source>
+                    <target>${maven.compile.target}</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
             	</plugin>
-            	<!-- Apache Felix Bundle Plugin -->
+            	<!-- Apache Felix Bundle Plugin : Enable 'mvn package' on Project -->
                 <plugin>
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
