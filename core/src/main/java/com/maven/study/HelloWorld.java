@@ -1,8 +1,9 @@
 package com.maven.study;
 
-public class HelloWorld {
+import java.util.List;
 
-	public static void main(String... arg){
-		System.out.println("Hello World");
+public class HelloWorld {
+	public static int getListSize(List<Integer> list){
+		return list.size();
 	}
 }
