@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
@@ -5,17 +6,22 @@
 	<artifactId>Maven-Study</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
+	<!-- This Name is shown when writing Info about this module instead of Artifact ID. Simplifies Logs on terminal. -->
 	<name>Maven Study</name>
 	<description>Maven Study Project - for understanding</description>
-	<!-- POM Packaging means this Parent module is just a POM file, and does not represent any other format(war, jar etc) -->
+	<!-- 
+		POM Packaging means this Parent module is just a POM file, and does not represent any other format(war, jar etc) 
+		Does not produce anything, but include the other modules 
+	-->
 	<packaging>pom</packaging>
 
-	<!-- The Modules This POM includes  
+	<!-- The Modules This POM includes  -->
 	<modules>
 		<module>core</module>
+		<!--
 		<module>ui.apps</module>
-		<module>ui.content</module>
-	</modules> -->
+		<module>ui.content</module> -->
+	</modules> 
 
 	<!-- Properties are variables that i can use throught POM using Expression Language like syntax -->
 	<properties>
