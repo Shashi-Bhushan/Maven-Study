@@ -11,4 +11,25 @@
 	<name>Maven Study - Core</name>
 	<artifactId>Maven-Study-Core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<description>Maven Study - Core Bundle</description>
+	<!-- Bundle Packaging means this will be a Bundle. OSGi Bundle -->
+	<packaging>bundle</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<!-- Required bundle manifestation -->
+						<Export-Package>com.maven.study.*;version="${project.version}"</Export-Package>
+						<Bundle-SymbolicName>Maven-Study-Bundle-Symbolic-Name</Bundle-SymbolicName>
+						<!-- End Of required bundle manifestation -->
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
