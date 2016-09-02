@@ -35,6 +35,17 @@
 		<maven.compile.target>1.8</maven.compile.target>
 		<maven.compiler.version>3.3</maven.compiler.version>
 		<maven.groovy.version>2.3.6</maven.groovy.version>
+
+		<!--
+			In order to make build platform independent, Add the encoding for maven-compiler-plugin:3.3:compile and
+			maven-resources-plugin:3.0.1:resources (default-resources) here
+
+			[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+
+			This or a similar warning is emitted by a plugin that processes plain text files but has not been configured
+			to use a specific file encoding. So eliminating the warning
+		-->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<build>
@@ -55,7 +66,6 @@
                 	Target means it will run on JVM Version 1.8 -->
                     <source>1.6</source>
                     <target>1.6</target>
-                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
 		</plugins>
@@ -71,7 +81,6 @@
                 	Target means it will run on JVM Version 1.8 -->
                     <source>${maven.compile.source}</source>
                     <target>${maven.compile.target}</target>
-                    <encoding>UTF-8</encoding>
                 </configuration>
             	</plugin>
             	<!-- Apache Felix Bundle Plugin : Enable 'mvn package' on Project -->
