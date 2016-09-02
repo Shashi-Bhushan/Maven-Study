@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.maven.study</groupId>
+	<artifactId>Maven-Study</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<name>Maven Study</name>
+	<description>Maven Study Project - for understanding</description>
+	<!-- POM Packaging means this Parent module is just a POM file, and does not represent any other format(war, jar etc) -->
+	<packaging>pom</packaging>
+
+	<!-- The Modules This POM includes  
+	<modules>
+		<module>core</module>
+		<module>ui.apps</module>
+		<module>ui.content</module>
+	</modules> -->
+
+	<!-- Properties are variables that i can use throught POM using Expression Language like syntax -->
+	<properties>
+		<aem.host>localhost</aem.host>
+		<aem.port>4502</aem.port>
+		<aem.publish.host>localhost</aem.publish.host>
+		<aem.publish.port>4503</aem.publish.port>
+		<aem.user>admin</aem.user>
+		<aem.user.password>admin</aem.user.password>
+	</properties>
+
+	<build>
+		<!-- Plugins and Configurations Specific to the project, Won't be inherited -->
+		<plugins>
+			<!-- Maven Compiler Plugin, used to compile the Java Classes in Projects -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <!-- 
+                	Version is important here, having no version means maven will Take default Version of plugin 
+                	To check what version maven uses, this gives the output
+                	mvn help:describe -DartifactId=maven-compiler-plugin -DgroupId=org.apache.maven.plugins
+                -->
+                <version>3.3</version>
+                <configuration>
+                	<!-- Source means compile assuming input class has syntax of Java 1.8 
+                	Target means it will run on JVM Version 1.8 -->
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                	<!-- Source means compile assuming input class has syntax of Java 1.8 
+                	Target means it will run on JVM Version 1.8 -->
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            	</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
