@@ -21,8 +21,16 @@
 	<!-- Bundle Packaging means this will be a Bundle. OSGi Bundle -->
 	<packaging>bundle</packaging>
 
-	<!-- How to Enable Groovy : 1 Add Maven Dependency for Enabling Groovy -->
+	<!--
+		Difference Between Dependency and Plugin
+		- Dependency is just a Jar file, which will be added to the classpath while executing the tasks
+			Dependency does not have a configuration along with them
+		- Plugin does the actual, instead of just being in the classpath
+			Eg: you use a compiler-plugin to compile the java files. You can't use compiler-plugin as a dependency
+			since that will only add the plugin to the classpath, and will not trigger any compilation
+	-->
 	<dependencies>
+		<!-- How to Enable Groovy : 1 Add Maven Dependency for Enabling Groovy -->
 		<dependency>
 			<groupId>org.codehaus.groovy</groupId>
 			<artifactId>groovy-all</artifactId>
