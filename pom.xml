@@ -15,7 +15,18 @@
 	-->
 	<packaging>pom</packaging>
 
-	<!-- The Modules This POM includes  -->
+	<!-- ====================================================================== -->
+	<!-- P R O J E C T  A G G R E G A T I O N                                   -->
+	<!-- ====================================================================== -->
+	<!--
+		The Modules This POM includes
+
+		For Project Aggregation, change Packaging from default of jar to 'pom'
+		now, parent knows about inheriting projects as well.
+
+		Project Aggregation : Project runs the same maven commands in all of it's modules
+		Project Inheritance : Child Projects inherit what's not specifies from Parent Project.
+	-->
 	<modules>
 		<module>core</module>
 		<!--
