@@ -6,6 +6,11 @@
 	<artifactId>Maven-Study</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
+	<!--
+		All maven project POMs extends from Maven Super POM.
+		you can get effective pom for the project by using mvn help:effective-pom
+		This will show the effective POM in console, after inheritance, interpolation, and profiles are applied.
+	-->
 	<!-- This Name is shown when writing Info about this module instead of Artifact ID. Simplifies Logs on terminal. -->
 	<name>Maven Study</name>
 	<description>Maven Study Project - for understanding</description>
