@@ -33,4 +33,14 @@ public class NumbersUtilTest {
         assert( NumbersUtil.squareRoot(16.16f) == 4.0242186f);
         assert( NumbersUtil.squareRoot(4) == 2);
     }
+
+
+    @Test
+    public void isPrimeTest(){
+        assert(NumbersUtil.isPrime(17) == true);
+        assert(NumbersUtil.isPrime(101) == true);
+        assert(NumbersUtil.isPrime(105) == false);
+
+
+    }
 }

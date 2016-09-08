@@ -85,8 +85,19 @@ public class NumbersUtil {
 
     public static boolean isPrime(int number){
 
+        int sqrt = (int)squareRoot(number);
 
-        return false;
+        int i = 2;
+        boolean isPrime = true;
+
+        while(i < sqrt){
+            if(number % i++ == 0){
+                isPrime = false;
+                break;
+            }
+        }
+
+        return isPrime;
     }
 
     /**
