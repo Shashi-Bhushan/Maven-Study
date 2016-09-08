@@ -82,4 +82,47 @@ public class NumbersUtil {
         return new String(chars);
 
     }
+
+    public static boolean isPrime(int number){
+
+
+        return false;
+    }
+
+    /**
+     * 1. Initialize, start = 0, end = number, mid = (start+end)/2.
+
+     3. Find diff = difference between number  and mid * mid.
+
+     4. While difference is not in range 0.05,
+
+     repeat the following steps:
+
+     a. If mid*mid > number, then the square root will be less than mid. So, set end = mid.
+
+     b. Else, the square root will be greater than mid. So, set start = mid.
+
+     d. Re-evaluate mid  = (start+end)/2.
+
+     e. Re-evaluate midSquare
+     * @param number
+     * @return
+     */
+    public static float squareRoot(float number){
+        float start = 0, end = number, mid = (start + end) / 2;
+
+        float midSquare;
+
+        while( (midSquare = mid * mid) - number > 0.05 || number - (midSquare = mid * mid) > 0.05 ){
+            if(midSquare > number){
+                end = mid;
+            } else if(midSquare < number){
+                start = mid;
+            }
+
+            mid = (start + end) / 2;
+        }
+
+        return mid;
+    }
 }
