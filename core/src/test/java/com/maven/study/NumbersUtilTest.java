@@ -72,4 +72,10 @@ public class NumbersUtilTest {
     public void testFindLCM(){
         assert (NumbersUtil.findLCM(60, 84) == 420);
     }
+
+    @Test
+    public void testBinarySearch(){
+        assert (NumbersUtil.binarySearch(new int[]{1,3,5} , 5) == 2);
+        assert (NumbersUtil.binarySearch(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9} , 10) == -1);
+    }
 }

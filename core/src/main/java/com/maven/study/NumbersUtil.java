@@ -210,6 +210,26 @@ public class NumbersUtil {
         return lcm;
     }
 
+    public static int binarySearch(int[] array, int toSearch) {
+
+        int startIndex = 0, endIndex = array.length -1, midIndex = ( startIndex + endIndex ) / 2;
+
+        while( startIndex <= endIndex){
+            if( array[midIndex] < toSearch){
+                startIndex = midIndex + 1;
+            }else if(toSearch < array[midIndex]){
+                endIndex = midIndex - 1;
+            } else if(array[midIndex] == toSearch){
+                return midIndex;
+            }
+
+            midIndex = (startIndex + endIndex) / 2;
+        }
+
+
+        return -1;
+    }
+
     public static class FactorModal{
         private int firstNumber;
         private int secondNumber;
