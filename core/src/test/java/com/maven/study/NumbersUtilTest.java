@@ -2,9 +2,7 @@ package com.maven.study;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author Shashi Bhushan
@@ -29,18 +27,49 @@ public class NumbersUtilTest {
     }
 
     @Test
-    public void squareRootTest(){
+    public void testDecimalToBinary() throws Exception {
+
+    }
+
+    @Test
+    public void testDecimalToBinaryRecurse() throws Exception {
+
+    }
+
+    @Test
+    public void testIntegerToStringDifferentImpl() throws Exception {
+
+    }
+
+    @Test
+    public void testIsPrime() throws Exception {
+        assert(NumbersUtil.isPrime(17) == true);
+        assert(NumbersUtil.isPrime(101) == true);
+        assert(NumbersUtil.isPrime(105) == false);
+    }
+
+    @Test
+    public void testSquareRoot() throws Exception {
         assert( NumbersUtil.squareRoot(16.16f) == 4.0242186f);
         assert( NumbersUtil.squareRoot(4) == 2);
     }
 
+    @Test
+    public void testFindFactors() throws Exception{
+
+        List list = NumbersUtil.findFactors(18);
+
+        List compareList = Arrays.asList(1,2,3,3);
+        assert (list.equals(compareList));
+    }
 
     @Test
-    public void isPrimeTest(){
-        assert(NumbersUtil.isPrime(17) == true);
-        assert(NumbersUtil.isPrime(101) == true);
-        assert(NumbersUtil.isPrime(105) == false);
+    public void testFindHCF(){
+        assert (NumbersUtil.findHCF(60, 84) == 12);
+    }
 
-
+    @Test
+    public void testFindLCM(){
+        assert (NumbersUtil.findLCM(60, 84) == 420);
     }
 }

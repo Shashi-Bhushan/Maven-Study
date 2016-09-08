@@ -1,8 +1,6 @@
 package com.maven.study;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author Shashi Bhushan
@@ -135,5 +133,108 @@ public class NumbersUtil {
         }
 
         return mid;
+    }
+
+    public static List<Integer> findFactors(int number) {
+        int sqrt = (int)squareRoot(number);
+
+        List<Integer> list = new LinkedList<Integer>();
+
+        // list will always have 1 factor
+        list.add(1);
+        int i = 2;
+
+        while(i <= sqrt){
+            while(number % i == 0){
+                list.add(i);
+                number = number / i;
+            }
+
+            i++;
+        }
+
+        return list;
+    }
+
+    /**
+     * Go only till the square root of the least number
+     * keep multiplying the same i with numbers till it's perfectly divisible
+     * @param number1
+     * @param number2
+     * @return
+     */
+    public static int findHCF(int number1, int number2){
+        int least = number1 < number2 ? number1 : number2;
+
+        int sqrt = (int)squareRoot(least);
+
+        int i = 2;
+
+        int hcf = 1;
+
+        while(i <= sqrt){
+            while(number1 % i == 0 && number2 % i == 0){
+                hcf = hcf * i;
+
+                number1 = number1 / i;
+                number2 = number2 / i;
+            }
+            i++;
+        }
+
+        return hcf;
+    }
+
+    public static int findLCM(int number1, int number2) {
+        int least = number1 < number2 ? number1 : number2;
+
+        int sqrt = (int)squareRoot(least);
+
+        int i = 2;
+
+        int lcm = 1;
+
+        while(i <= sqrt) {
+            while(number1 % i == 0 && number2 % i == 0) {
+                lcm = lcm * i;
+
+                number1 = number1 / i;
+                number2 = number2 / i;
+            }
+
+            i++;
+        }
+
+        lcm = lcm * number1 * number2;
+
+        return lcm;
+    }
+
+    public static class FactorModal{
+        private int firstNumber;
+        private int secondNumber;
+
+        public FactorModal(int firstNumber, int secondNumber) {
+            this.firstNumber = firstNumber;
+            this.secondNumber = secondNumber;
+        }
+
+        public int getFirstNumber() {
+            return firstNumber;
+        }
+
+        public FactorModal setFirstNumber(int firstNumber) {
+            this.firstNumber = firstNumber;
+            return this;
+        }
+
+        public int getSecondNumber() {
+            return secondNumber;
+        }
+
+        public FactorModal setSecondNumber(int secondNumber) {
+            this.secondNumber = secondNumber;
+            return this;
+        }
     }
 }
