@@ -230,6 +230,42 @@ public class NumbersUtil {
         return -1;
     }
 
+    public static int binarySearchWithSearchType(int[] array, int toSearch, BinarySearchType searchType){
+        int startIndex = 0, endIndex = array.length - 1, midIndex = ( startIndex + endIndex ) / 2;
+
+        int position = -1;
+
+        while(startIndex <= endIndex){
+            if(array[midIndex] < toSearch){
+                startIndex = midIndex + 1;
+            }else if(toSearch < array[midIndex]){
+                endIndex = midIndex - 1;
+            }else if(array[midIndex] == toSearch){
+                position = midIndex;
+                switch(searchType){
+                    case FIRST_OCCURENCE:
+                        endIndex = midIndex - 1;
+                        break;
+                    case LASTOCCURENCE:
+                        startIndex = midIndex + 1;
+                        break;
+                    case NORMAL:
+                        return position;
+                }
+            }
+
+            midIndex = (startIndex + endIndex) / 2;
+        }
+
+        return position;
+    }
+
+    public enum BinarySearchType{
+        NORMAL,
+        FIRST_OCCURENCE,
+        LASTOCCURENCE
+    }
+
     public static class FactorModal{
         private int firstNumber;
         private int secondNumber;
