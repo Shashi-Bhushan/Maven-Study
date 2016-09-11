@@ -43,9 +43,9 @@ public class NumbersUtilTest {
 
     @Test
     public void testIsPrime() throws Exception {
-        assert(NumbersUtil.isPrime(17) == true);
-        assert(NumbersUtil.isPrime(101) == true);
-        assert(NumbersUtil.isPrime(105) == false);
+//        assert(NumbersUtil.isPrime(7) == true);
+//        assert(NumbersUtil.isPrime(6) == false);
+        assert(NumbersUtil.isPrime(169) == false);
     }
 
     @Test
@@ -55,6 +55,7 @@ public class NumbersUtilTest {
     }
 
     @Test
+
     public void testFindFactors() throws Exception{
 
         List list = NumbersUtil.findFactors(18);

@@ -41,6 +41,26 @@ public class NumbersUtil {
         }
     }
 
+    public static int binaryToDecimal(String binaryString) {
+        char[] binary = binaryString.toCharArray();
+
+        int result = 0, pow2 = 1;
+
+        int arrLength = binary.length - 1;
+
+        while (arrLength >= 0) {
+            int num = binary[arrLength] - '0';
+
+            result = result + num * pow2;
+
+            pow2 *= 2;
+
+            arrLength = arrLength - 1;
+        }
+
+        return result;
+    }
+
     public static String integerToString(int number, int length){
 
         char[] chars = new char[length];
@@ -83,7 +103,7 @@ public class NumbersUtil {
 
     public static boolean isPrime(int number){
 
-        int sqrt = (int)squareRoot(number);
+        int sqrt = (int)squareRoot(number) + 1;
 
         int i = 2;
         boolean isPrime = true;
@@ -132,7 +152,7 @@ public class NumbersUtil {
             mid = (start + end) / 2;
         }
 
-        return mid;
+        return Math.round(mid);
     }
 
     public static List<Integer> findFactors(int number) {
