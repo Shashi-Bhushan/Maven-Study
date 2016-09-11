@@ -246,7 +246,7 @@ public class NumbersUtil {
                     case FIRST_OCCURENCE:
                         endIndex = midIndex - 1;
                         break;
-                    case LASTOCCURENCE:
+                    case LAST_OCCURENCE:
                         startIndex = midIndex + 1;
                         break;
                     case NORMAL:
@@ -263,7 +263,7 @@ public class NumbersUtil {
     public enum BinarySearchType{
         NORMAL,
         FIRST_OCCURENCE,
-        LASTOCCURENCE
+        LAST_OCCURENCE
     }
 
     public static class FactorModal{
